@@ -1,0 +1,24 @@
+﻿{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "theperiscope",
+    "classifications": [ "Console", "CLI" ],
+    "identity": "theperiscope.SpectreConsoleAppTemplate",
+    "name": "Spectre Console App Template using Generic Host",
+    "shortName": "spectreConsoleApp",
+    "sourceName": "SpectreConsoleAppTemplate",
+    // when a project is created using a template that has this set to true the project name will match the directory name
+    "preferNameDirectory": true,
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "sources": [
+        {
+            "modifiers": [
+                {
+                    "exclude": [ ".vs/**", ".git/**" ]
+                }
+            ]
+        }
+    ]
+}

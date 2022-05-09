@@ -69,7 +69,9 @@ namespace SpectreConsoleAppTemplate.Framework
         public async Task DoWork(CancellationToken cancellationToken)
         {
             var app = new CommandApp(typeRegistrar);
-            app.SetDefaultCommand<ShowCurrentDateTimeCommand>();
+
+            // uncomment to set a default command
+            // app.SetDefaultCommand<ShowCurrentDateTimeCommand>();
 
             app.Configure(configurator =>
             {
@@ -80,6 +82,7 @@ namespace SpectreConsoleAppTemplate.Framework
                     .WithExample(new[] { "now" })
                     .WithExample(new[] { "now", "-u" })
                     .WithExample(new[] { "now", "-f \"yyyy-MM-dd HH:mm\" -u" });
+                configurator.AddCommand<GetPublicHolidaysCommand>("get-public-holidays");
                 configurator.SetInterceptor(new WaitForDebuggerInterceptor());
 
                 // https://spectreconsole.net/cli/exceptions

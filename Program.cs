@@ -6,7 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Refit;
 using Spectre.Console.Cli;
+using SpectreConsoleAppTemplate.CLI;
 using SpectreConsoleAppTemplate.Configuration;
 using SpectreConsoleAppTemplate.Framework;
 using SpectreConsoleAppTemplate.Spectre;
@@ -101,6 +103,8 @@ namespace SpectreConsoleAppTemplate
                        services.Configure<ConsoleLifetimeOptions>(options => options.SuppressStatusMessages = true);
 
                        services.AddSingleton(hostContext.Configuration.GetSection(nameof(CLIConfiguration)).Get<CLIConfiguration>());
+
+                       services.AddRefitClient<IPublicHolidayAPI>().ConfigureHttpClient(c => c.BaseAddress = new Uri("https://date.nager.at/api/v3"));
                    })
                    .ConfigureLogging((hostContext, builder) =>
                    {

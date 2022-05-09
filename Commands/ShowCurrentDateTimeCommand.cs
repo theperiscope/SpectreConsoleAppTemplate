@@ -37,7 +37,9 @@ namespace SpectreConsoleAppTemplate.Commands
             }
         }
 
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public override async Task<int> ExecuteAsync(CommandContext context, ShowCurrentDateTimeCommand.Settings settings)
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             var dateTime = settings?.IsUtc == true ? DateTime.UtcNow : DateTime.Now;
             AnsiConsole.MarkupLine("[bold yellow]{0}[/]", dateTime.ToString(settings.Format));

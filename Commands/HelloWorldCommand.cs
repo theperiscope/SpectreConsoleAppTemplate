@@ -11,6 +11,7 @@ namespace SpectreConsoleAppTemplate.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, SharedSpectreCommandSettings settings)
         {
             // Synchronous
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
             await AnsiConsole.Status()
                 .StartAsync("Thinking...", async ctx =>
                 {
@@ -30,6 +31,7 @@ namespace SpectreConsoleAppTemplate.Commands
                     // throw exception as a test of exception handling
                     // throw new InvalidOperationException("oh noooo...");
                 });
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
             return 0;
         }
     }

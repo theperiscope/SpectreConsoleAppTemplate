@@ -1,0 +1,2 @@
+@rem The `/p:CopyOutputSymbolsToPublishDirectory=false` is necessary to prevent .pdb file from being published.
+@dotnet publish -c Release -f net6.0 -r win10-x64 --self-contained true /p:CopyOutputSymbolsToPublishDirectory=false

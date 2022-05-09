@@ -75,6 +75,9 @@ namespace SpectreConsoleAppTemplate.Framework
 
             app.Configure(configurator =>
             {
+                // without setting application name the .dll is rendered with extension (even if .exe is built) when --help is used
+                configurator.SetApplicationName(System.IO.Path.GetFileNameWithoutExtension(AppDomain.CurrentDomain.FriendlyName));
+
                 configurator.ValidateExamples();
 
                 configurator.AddCommand<HelloWorldCommand>("hello-world");

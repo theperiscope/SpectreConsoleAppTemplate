@@ -97,6 +97,11 @@ namespace SpectreConsoleAppTemplate.Framework
                 await app.RunAsync(Environment.GetCommandLineArgs().Skip(1).ToArray());
                 Environment.ExitCode = 0;
             }
+            catch (CommandParseException ex)
+            {
+                AnsiConsole.MarkupLine("[bold red]{0}[/]", ex.Message);
+                Environment.ExitCode = -1;
+            }
             catch (Exception ex)
             {
                 AnsiConsole.WriteException(ex, ExceptionFormats.ShortenEverything);

@@ -27,7 +27,22 @@ SpectreConsoleAppTemplate is a .NET 6 console app template that features:
 3. Install the template
 
     ```
-    dotnet new --install .
+    dotnet new install .
+    ```
+
+## Reinstall Template
+
+1. Clone the code
+
+    ```
+    git clone https://github.com/theperiscope/SpectreConsoleAppTemplate.git
+    ```
+
+2. `CD` into folder where template code was cloned
+3. Install the template
+
+    ```
+    dotnet new install . --force
     ```
 
 ## Create New Project
@@ -44,13 +59,13 @@ dotnet new spectreConsoleApp
 2. Install the template
 
     ```
-    dotnet new --uninstall .
+    dotnet new uninstall .
     ```
 
 ## Check If Template Is Installed
 
 ```
-dotnet new --list | find "spectre"
+dotnet new list | find "spectre"
 ```
 
 ## Publishing
@@ -60,5 +75,5 @@ dotnet new --list | find "spectre"
 The `/p:CopyOutputSymbolsToPublishDirectory=false` is necessary to prevent .pdb file from being published.
 
 ```
-dotnet publish -c Release -f net6.0 -r win10-x64 --self-contained true /p:CopyOutputSymbolsToPublishDirectory=false
+dotnet publish -c Release -f net7.0 -r win10-x64 --self-contained true /p:CopyOutputSymbolsToPublishDirectory=false
 ```

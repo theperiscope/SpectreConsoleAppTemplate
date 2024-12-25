@@ -1,6 +1,6 @@
 # SpectreConsoleAppTemplate
 
-SpectreConsoleAppTemplate is a .NET 6 console app template that features:
+SpectreConsoleAppTemplate is a .NET 8 console app template that features:
 
 * [Spectre.Console](https://spectreconsole.net/) [GitGub](https://github.com/spectreconsole/spectre.console)
   * library that makes it easier to create beautiful console applications
@@ -75,5 +75,5 @@ dotnet new list | find "spectre"
 The `/p:CopyOutputSymbolsToPublishDirectory=false` is necessary to prevent .pdb file from being published.
 
 ```
-dotnet publish -c Release -f net7.0 -r win10-x64 --self-contained true /p:CopyOutputSymbolsToPublishDirectory=false
+dotnet publish -c Release -f net8.0 -r win10-x64 --self-contained true /p:CopyOutputSymbolsToPublishDirectory=false
 ```
